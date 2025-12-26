@@ -1,2 +1,2 @@
-# 100-DAYS-OF-AZURE-CLOUD-by-KODEKLOUD
-This repository covers 50 Days of AZURE tasks from the 100 days of cloud by KodeKloud.
+# 100 DAYS OF CLOUD(AZURE) by KODEKLOUD
+The 100 Days of Cloud challenge by KodeKloud is a free, hands-on learning program designed to help you master the two leading cloud platforms—Amazon Web Services (AWS) and Microsoft Azure—through daily, practical tasks. The challenge is split evenly between the two major cloud providers, allowing you to compare how different platforms solve the same problems. In this we will cover 50 Days of AZURE: Tasks focusing on Azure's cloud ecosystem.
