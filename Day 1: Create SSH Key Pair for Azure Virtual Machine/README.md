@@ -29,3 +29,5 @@ End Time:	Fri Dec 26 09:13:18 UTC 2025
 
 7.  **CLI**
    <img width="1895" height="387" alt="image" src="https://github.com/user-attachments/assets/5d516f61-5c22-4512-8e48-5063140f6d3c" />
+
+8. Click on **Check** on KodeKloud and close the task of the day.
