@@ -4,30 +4,58 @@ The Nautilus DevOps team is strategizing the migration of a portion of their inf
 
 For this task, create an SSH key pair with the following requirements:  
 The name of the SSH key pair should be **nautilus-kp**.  
-The key pair **type** must be **rsa**.  
+The key pair **type** must be **rsa**.   
 
-Use below given Azure Credentials: (You can run the showcreds command on the azure-client host to retrieve these credentials)  
-Portal URL:	https://portal.azure.com  
-Username:	kk_lab_user_main-42d794ab7cd548f8@azurefreekmlprod.onmicrosoft.com  
-Password:	Aa-JZf5P  
-Start Time:	Fri Dec 26 08:13:18 UTC 2025  
-End Time:	Fri Dec 26 09:13:18 UTC 2025  
+## Theory  
+### What is an SSH Key Pair in Azure?  
+An SSH key pair in Azure is a set of cryptographic credentials used to securely authenticate users to Linux-based Azure Virtual Machines. It consists of:  
+•  Public Key  
+Stored in Azure and injected into the virtual machine during creation.  
+•  Private Key  
+Downloaded by the user at creation time and used to authenticate SSH access. This file must be kept secure.  
+Azure uses asymmetric cryptography, where the private key proves identity without exposing sensitive credentials over the network.  
 
-## STEPS:
-1. Click on the portal url from the given Azure credentials and enter the username and password to login. We will now be in Microsoft Azure console.
-2. Search for SSH keys in search tab and click on SSH keys.
-3. In the SSH keys section, click on create and create the keys entering:
-   
-   Resource group - select the existing one from drop-down menu
-   Key pair name - **nautilus-kp**
-   SSH key type - **RSA SSH Format**
-   Click on **review+create** -> **create** -> **download and go to resources**
-4. That's it, the SSH keys are created and the task it completed. You can view the SSH keys in the UI or even through the CLI on KodeKloud by entering: **az sshkey list**
+### Why is an SSH Key Pair Required?  
+•  SSH key pairs provide secure, password-less authentication  
+•  Password-based login is disabled by default for Linux virtual machines  
+•  SSH keys significantly reduce the risk of brute-force and credential-based attacks  
+Without a valid SSH key pair, secure access to a Linux Azure VM is not possible.  
 
-5. **UI**
-   <img width="1919" height="466" alt="image" src="https://github.com/user-attachments/assets/066fa624-d0c1-4fda-92d8-1cb746028c10" />
+### SSH Key Types in Azure  
+Azure supports multiple SSH key formats. In this task, the RSA SSH key type was used.  
+•  RSA  
+Widely supported and compatible with OpenSSH  
+Commonly used for Linux virtual machines  
+Supported by most automation and configuration tools  
 
-7.  **CLI**
-   <img width="1895" height="387" alt="image" src="https://github.com/user-attachments/assets/5d516f61-5c22-4512-8e48-5063140f6d3c" />
+### SSH Key Use Cases  
+•  Secure SSH access to Azure Virtual Machines  
+•  Authentication during VM provisioning  
+•  Used by automation tools such as Ansible, Terraform, and CI CD pipelines  
+•  Access management in multi-user cloud environments  
 
-8. Click on **Check** on KodeKloud and close the task of the day.
+### Security Best Practices  
+•  Never commit private SSH key files to GitHub or public repositories  
+•  Store private keys securely with restricted file permissions  
+•  Rotate SSH keys if a private key is compromised or exposed  
+
+### Outcome of This Task  
+By completing this task, an RSA-based SSH key pair named nautilus-kp was created in Azure, enabling secure access to Linux virtual machines as part of the cloud migration strategy.  
+
+### Steps Performed  
+1.   Logged in to the Azure Portal using the provided credentials.  
+2.   Searched for SSH keys in the Azure portal search bar and opened the SSH keys service.  
+3.   Clicked Create and provided the following details:  
+•  Resource group: Selected an existing resource group from the drop-down  
+•  Key pair name: nautilus-kp  
+•  SSH key type: RSA SSH format  
+4.   Clicked Review + Create, then Create, and downloaded the private key file.  
+5.   Verified key pair creation using the Azure CLI on the KodeKloud host:   **az sshkey list**
+
+**Verification**  
+*Azure Portal UI*
+<img width="1919" height="466" alt="image" src="https://github.com/user-attachments/assets/066fa624-d0c1-4fda-92d8-1cb746028c10" />  
+
+  
+*Azure CLI*
+<img width="1895" height="387" alt="image" src="https://github.com/user-attachments/assets/5d516f61-5c22-4512-8e48-5063140f6d3c" />  
